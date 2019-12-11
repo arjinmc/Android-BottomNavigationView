@@ -1,0 +1,2 @@
+include ':app', ':bottomnavigationview'
+rootProject.name='Android-BottomNavigationView'
