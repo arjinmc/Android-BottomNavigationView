@@ -78,6 +78,8 @@ public class BottomNavigationViewActivity extends AppCompatActivity {
         naviItem3.setNumber(100);
         mBottomNavigationView.addItem(naviItem3);
 
+        naviItem3.setChecked();
+
         mBottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public void onItemSelected(int itemId) {

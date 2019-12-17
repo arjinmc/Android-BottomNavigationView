@@ -468,7 +468,7 @@ public class NavigationItemView extends FrameLayout {
      *
      * @param isCheck
      */
-    public void setChecked(boolean isCheck) {
+    public void setCheckedState(boolean isCheck) {
         mIvIcon.setSelected(isCheck);
         mTvTitle.setSelected(isCheck);
         mTvNumber.setSelected(isCheck);

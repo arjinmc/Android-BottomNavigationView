@@ -180,7 +180,7 @@ public class BottomNavigationView extends LinearLayout {
 
         if (mNavigationItemViewList.isEmpty()) {
             mCurrentCheckedItemId = navigationItemView.getId();
-            navigationItemView.setChecked(true);
+            navigationItemView.setCheckedState(true);
         }
         mNavigationItemViewList.add(navigationItemView);
 
@@ -279,9 +279,9 @@ public class BottomNavigationView extends LinearLayout {
         mCurrentCheckedItemId = itemId;
         for (NavigationItemView navigationItemView : mNavigationItemViewList) {
             if (navigationItemView.getId() == mCurrentCheckedItemId) {
-                navigationItemView.setChecked(true);
+                navigationItemView.setCheckedState(true);
             } else {
-                navigationItemView.setChecked(false);
+                navigationItemView.setCheckedState(false);
             }
         }
 
