@@ -4,6 +4,8 @@
         <attr name="tabNumberTextColor" format="reference" />
         <attr name="tabNumberTextSize" format="dimension" />
         <attr name="tabNumberBackground" format="reference" />
+        <attr name="tabNumberMarginLeft" format="dimension" />
+        <attr name="tabNumberMarginTop" format="dimension" />
         <attr name="tabIconSize" format="dimension" />
         <attr name="tabTextColor" format="reference" />
         <attr name="tabTextSize" format="dimension" />

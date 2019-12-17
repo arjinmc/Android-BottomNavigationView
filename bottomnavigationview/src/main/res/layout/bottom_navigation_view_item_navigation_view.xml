@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/bottom_navigation_view_height"
     android:layout_weight="1">
+
     <LinearLayout
         android:id="@+id/bottom_navigation_view_ll_content"
         android:layout_width="match_parent"
@@ -30,11 +31,11 @@
         android:layout_width="@dimen/bottom_navigation_view_item_number_icon_size"
         android:layout_height="@dimen/bottom_navigation_view_item_number_icon_size"
         android:layout_gravity="top|center_horizontal"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginLeft="@dimen/bottom_navigation_view_item_number_margin_left"
+        android:layout_marginTop="@dimen/bottom_navigation_view_item_number_margin_top"
         android:background="@drawable/bottom_navigation_view_bg_item_number"
         android:gravity="center"
-        android:visibility="visible"
         android:textColor="@android:color/white"
-        android:textSize="@dimen/bottom_navigation_view_item_number_text_size" />
+        android:textSize="@dimen/bottom_navigation_view_item_number_text_size"
+        android:visibility="visible" />
 </FrameLayout>

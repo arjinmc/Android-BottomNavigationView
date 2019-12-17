@@ -92,13 +92,30 @@ public class BottomNavigationViewActivity extends AppCompatActivity {
             public void onItemSelected(int itemId) {
                 switch (itemId) {
                     case R.id.tab_1:
-                        Log.i("tab", "tab1");
+                        Log.i("click", "tab1");
                         break;
                     case R.id.tab_2:
-                        Log.i("tab", "tab2");
+                        Log.i("click", "tab2");
                         break;
                     case R.id.tab_3:
-                        Log.i("tab", "tab3");
+                        Log.i("click", "tab3");
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            @Override
+            public void onItemReleaseSelected(int itemId) {
+                switch (itemId) {
+                    case R.id.tab_1:
+                        Log.i("release", "tab1");
+                        break;
+                    case R.id.tab_2:
+                        Log.i("release", "tab2");
+                        break;
+                    case R.id.tab_3:
+                        Log.i("relase", "tab3");
                         break;
                     default:
                         break;

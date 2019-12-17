@@ -48,14 +48,10 @@ public class NavigationItemView extends FrameLayout {
      */
     private boolean isTextSelectedBold;
     private int mCurrentGravity;
-    /**
-     * mark is checked
-     */
-    private boolean mIsCheck;
 
     public NavigationItemView(Context context, BottomNavigationView bottomNavigationView) {
         super(context);
-        bindParent(bottomNavigationView);
+        mParentView = bottomNavigationView;
         init();
     }
 
@@ -83,8 +79,11 @@ public class NavigationItemView extends FrameLayout {
         mTvNumber = findViewById(R.id.bottom_navigation_view_tv_number);
     }
 
-    private void bindParent(BottomNavigationView parentView) {
-        mParentView = parentView;
+    /**
+     * set checked
+     */
+    public void setChecked() {
+        mParentView.dispatchItemSelected(getId());
     }
 
     /**
@@ -470,7 +469,6 @@ public class NavigationItemView extends FrameLayout {
      * @param isCheck
      */
     public void setChecked(boolean isCheck) {
-        mIsCheck = isCheck;
         mIvIcon.setSelected(isCheck);
         mTvTitle.setSelected(isCheck);
         mTvNumber.setSelected(isCheck);

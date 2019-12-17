@@ -104,6 +104,10 @@ public class BottomNavigationView extends LinearLayout {
      */
     private Drawable mItemNumberBackgroundDrawable;
     /**
+     * the margin left/top of item number text
+     */
+    private int mItemNumberMarginLeft, mItemNumberMarginTop;
+    /**
      * the margin between text and icon
      */
     private float mItemDrawablePadding;
@@ -151,6 +155,10 @@ public class BottomNavigationView extends LinearLayout {
         mItemNumberTextSize = lAttrs.getDimension(R.styleable.BottomNavigationView_tabNumberTextSize
                 , getResources().getDimension(R.dimen.bottom_navigation_view_item_number_text_size));
         mItemNumberBackgroundDrawable = lAttrs.getDrawable(R.styleable.BottomNavigationView_tabNumberBackground);
+        mItemNumberMarginLeft = lAttrs.getDimensionPixelSize(R.styleable.BottomNavigationView_tabNumberMarginLeft
+                , getResources().getDimensionPixelSize(R.dimen.bottom_navigation_view_item_number_margin_left));
+        mItemNumberMarginTop = lAttrs.getDimensionPixelSize(R.styleable.BottomNavigationView_tabNumberMarginTop
+                , getResources().getDimensionPixelSize(R.dimen.bottom_navigation_view_item_number_margin_top));
 
         mItemDrawablePadding = lAttrs.getDimension(R.styleable.BottomNavigationView_tabDrawablePadding
                 , getResources().getDimension(R.dimen.bottom_navigation_view_item_drawable_margin_top));
@@ -172,6 +180,7 @@ public class BottomNavigationView extends LinearLayout {
         navigationItemView.setNumberTextColor(mItemNumberTextColor);
         navigationItemView.setNumberTextSize(mItemNumberTextSize);
         navigationItemView.setNumberBackground(mItemNumberBackgroundDrawable);
+        navigationItemView.setNumberMargin(mItemNumberMarginLeft, mItemNumberMarginTop);
         navigationItemView.setDrawableGap(mItemDrawablePadding);
         navigationItemView.setItemMarginBottom(mItemBottomPadding);
         return navigationItemView;
@@ -260,6 +269,15 @@ public class BottomNavigationView extends LinearLayout {
     }
 
     /**
+     * get current selected item id
+     *
+     * @return
+     */
+    public int getCurrentSelectedItemId() {
+        return mCurrentCheckedItemId;
+    }
+
+    /**
      * dispatch item selected
      *
      * @param itemId
@@ -273,6 +291,11 @@ public class BottomNavigationView extends LinearLayout {
         if (mCurrentCheckedItemId == itemId) {
             return;
         }
+
+        if (mOnNavigationItemSelectedListener != null) {
+            mOnNavigationItemSelectedListener.onItemReleaseSelected(mCurrentCheckedItemId);
+        }
+
         mCurrentCheckedItemId = itemId;
         for (NavigationItemView navigationItemView : mNavigationItemViewList) {
             if (navigationItemView.getId() == mCurrentCheckedItemId) {
@@ -298,5 +321,7 @@ public class BottomNavigationView extends LinearLayout {
 
     public interface OnNavigationItemSelectedListener {
         void onItemSelected(int itemId);
+
+        void onItemReleaseSelected(int itemId);
     }
 }
