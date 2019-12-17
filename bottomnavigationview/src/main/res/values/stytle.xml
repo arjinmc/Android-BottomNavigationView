@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="BottomNavigationView">
+        <attr name="tabItemGravity" format="flags">
+            <flag name="center" value="0" />
+            <flag name="bottom" value="1" />
+        </attr>
         <attr name="tabNumberTextColor" format="reference" />
         <attr name="tabNumberTextSize" format="dimension" />
         <attr name="tabNumberBackground" format="reference" />

@@ -23,22 +23,6 @@ import java.util.List;
 public class BottomNavigationView extends LinearLayout {
 
     /**
-     * item param mode match parent width
-     */
-    public static final int ITEM_PARAMS_MODE_MATCH = 0;
-    /**
-     * item param mode  wrap_content
-     */
-    public static final int ITEM_PARAMS_MODE_WRAP = 1;
-
-    /**
-     * item param mode
-     */
-    @IntDef(value = {ITEM_PARAMS_MODE_MATCH, ITEM_PARAMS_MODE_WRAP})
-    public @interface ItemParamsMode {
-    }
-
-    /**
      * item layout gravity center mode
      */
     public static final int ITEM_GRAVITY_MODE_CENTER = 0;
@@ -58,10 +42,6 @@ public class BottomNavigationView extends LinearLayout {
      * children list NavigationItemView
      */
     private List<NavigationItemView> mNavigationItemViewList;
-    /**
-     * current item params mode
-     */
-    private int mItemParamsMode = ITEM_PARAMS_MODE_MATCH;
     /**
      * current item layout gravity mode
      */
@@ -141,6 +121,7 @@ public class BottomNavigationView extends LinearLayout {
         setOrientation(LinearLayout.HORIZONTAL);
 
         TypedArray lAttrs = getContext().obtainStyledAttributes(attrs, R.styleable.BottomNavigationView);
+        mItemGravityMode = lAttrs.getInt(R.styleable.BottomNavigationView_tabItemGravity, 0);
         //icon
         mItemIconSize = lAttrs.getDimensionPixelSize(R.styleable.BottomNavigationView_tabIconSize
                 , getResources().getDimensionPixelSize(R.dimen.bottom_navigation_view_item_icon_size));
@@ -203,17 +184,11 @@ public class BottomNavigationView extends LinearLayout {
         }
         mNavigationItemViewList.add(navigationItemView);
 
-        switch (mItemParamsMode) {
-            case ITEM_PARAMS_MODE_MATCH:
-            default:
-                LinearLayout.LayoutParams params = new LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-                params.weight = 1;
-                addView(navigationItemView, params);
-                break;
-            case ITEM_PARAMS_MODE_WRAP:
-                addView(navigationItemView, new LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-                break;
-        }
+        LinearLayout.LayoutParams params = new LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+        params.weight = 1;
+        addView(navigationItemView, params);
+
+        setItemGravityMode(mItemGravityMode);
     }
 
     /**
@@ -253,10 +228,6 @@ public class BottomNavigationView extends LinearLayout {
         mNavigationItemViewList.remove(itemPosition);
     }
 
-    public void setItemParamsMode(@ItemParamsMode int itemParamsMode) {
-        mItemParamsMode = itemParamsMode;
-    }
-
     public void setItemGravityMode(@ItemGravityMode int itemGravityMode) {
         mItemGravityMode = itemGravityMode;
 
@@ -275,6 +246,15 @@ public class BottomNavigationView extends LinearLayout {
      */
     public int getCurrentSelectedItemId() {
         return mCurrentCheckedItemId;
+    }
+
+    /**
+     * get current item gravity mode
+     *
+     * @return
+     */
+    public int getCurrentItemGravity() {
+        return mItemGravityMode;
     }
 
     /**

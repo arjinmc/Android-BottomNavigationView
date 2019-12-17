@@ -2,6 +2,7 @@ package com.arjinmc.bottomnavigationviewdemo;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import androidx.annotation.Nullable;
@@ -16,7 +17,7 @@ import com.arjinmc.bottomnavigationview.NavigationItemView;
  */
 public class BottomNavigationViewActivity extends AppCompatActivity {
 
-    private RadioGroup mRgItemParams, mRgItemGravity;
+    private RadioGroup mRgItemGravity;
     private BottomNavigationView mBottomNavigationView;
 
     @Override
@@ -26,22 +27,12 @@ public class BottomNavigationViewActivity extends AppCompatActivity {
 
         initBottomNavigation();
 
-        mRgItemParams = findViewById(R.id.rg_item_params);
-        mRgItemParams.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch (checkedId) {
-                    case R.id.rb_mode_match:
-                        break;
-                    case R.id.rb_mode_wrap:
-                        break;
-                    default:
-                        break;
-                }
-            }
-        });
-
         mRgItemGravity = findViewById(R.id.rg_item_layout_gravity);
+        if (mBottomNavigationView.getCurrentItemGravity() == BottomNavigationView.ITEM_GRAVITY_MODE_CENTER) {
+            ((RadioButton) mRgItemGravity.getChildAt(0)).setChecked(true);
+        } else {
+            ((RadioButton) mRgItemGravity.getChildAt(1)).setChecked(true);
+        }
         mRgItemGravity.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {

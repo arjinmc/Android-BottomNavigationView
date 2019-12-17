@@ -16,32 +16,6 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Change item params" />
-
-        <RadioGroup
-            android:id="@+id/rg_item_params"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/rb_mode_match"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:text="match" />
-
-            <RadioButton
-                android:id="@+id/rb_mode_wrap"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:text="wrap" />
-        </RadioGroup>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:text="Change item layout gravity" />
 
         <RadioGroup
@@ -74,5 +48,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:tabIconSize="26dp"
+        app:tabItemGravity="center"
         app:tabTextColor="@drawable/selector_font" />
 </androidx.constraintlayout.widget.ConstraintLayout>
