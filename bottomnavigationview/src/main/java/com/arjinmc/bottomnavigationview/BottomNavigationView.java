@@ -107,6 +107,10 @@ public class BottomNavigationView extends LinearLayout {
      * the margin between text and icon
      */
     private float mItemDrawablePadding;
+    /**
+     * the padding of item bottom
+     */
+    private int mItemBottomPadding;
 
     public BottomNavigationView(Context context) {
         super(context);
@@ -149,7 +153,9 @@ public class BottomNavigationView extends LinearLayout {
         mItemNumberBackgroundDrawable = lAttrs.getDrawable(R.styleable.BottomNavigationView_tabNumberBackground);
 
         mItemDrawablePadding = lAttrs.getDimension(R.styleable.BottomNavigationView_tabDrawablePadding
-                , getResources().getDimension(R.dimen.bottom_navigation_view_item_margin_bottom));
+                , getResources().getDimension(R.dimen.bottom_navigation_view_item_drawable_margin_top));
+        mItemBottomPadding = lAttrs.getDimensionPixelSize(R.styleable.BottomNavigationView_tabBottomPadding
+                , getResources().getDimensionPixelSize(R.dimen.bottom_navigation_view_item_margin_bottom));
     }
 
     /**
@@ -167,6 +173,7 @@ public class BottomNavigationView extends LinearLayout {
         navigationItemView.setNumberTextSize(mItemNumberTextSize);
         navigationItemView.setNumberBackground(mItemNumberBackgroundDrawable);
         navigationItemView.setDrawableGap(mItemDrawablePadding);
+        navigationItemView.setItemMarginBottom(mItemBottomPadding);
         return navigationItemView;
     }
 

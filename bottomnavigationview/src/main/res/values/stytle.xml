@@ -9,5 +9,6 @@
         <attr name="tabTextSize" format="dimension" />
         <attr name="tabTextSelectedBoldStyle" format="boolean" />
         <attr name="tabDrawablePadding" format="dimension" />
+        <attr name="tabBottomPadding" format="dimension" />
     </declare-styleable>
 </resources>

@@ -47,6 +47,7 @@ public class NavigationItemView extends FrameLayout {
      * mark if selected to show text bold style
      */
     private boolean isTextSelectedBold;
+    private int mCurrentGravity;
     /**
      * mark is checked
      */
@@ -92,6 +93,11 @@ public class NavigationItemView extends FrameLayout {
      * @param layoutGravity
      */
     public void setLayoutGravity(@BottomNavigationView.ItemGravityMode int layoutGravity) {
+
+        if (mCurrentGravity != layoutGravity) {
+            mCurrentGravity = layoutGravity;
+        }
+
         FrameLayout.LayoutParams layoutParams = (LayoutParams) mLlContent.getLayoutParams();
         switch (layoutGravity) {
             case BottomNavigationView.ITEM_GRAVITY_MODE_CENTER:
@@ -119,6 +125,7 @@ public class NavigationItemView extends FrameLayout {
      */
     public void setItemMarginBottomDimen(@DimenRes int dimenResId) {
         mMarginBottom = getResources().getDimensionPixelSize(dimenResId);
+        setLayoutGravity(mCurrentGravity);
     }
 
     /**
@@ -128,6 +135,7 @@ public class NavigationItemView extends FrameLayout {
      */
     public void setItemMarginBottom(int dimen) {
         mMarginBottom = dimen;
+        setLayoutGravity(mCurrentGravity);
     }
 
     /**
