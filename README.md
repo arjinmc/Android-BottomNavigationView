@@ -2,6 +2,22 @@
 BottomNavigationView lib for Android as the normal style. You can ajust each item if you need.
 
 ## Import
+Publish in Jcenter.
+
+### gradle 
+```
+compile 'com.arjinmc.android:bottomnavigationview:1.0.0'
+```
+
+### maven
+```
+<dependency>
+  <groupId>com.arjinmc.android</groupId>
+  <artifactId>bottomnavigationview</artifactId>
+  <version>1.0.0</version>
+  <type>pom</type>
+</dependency>
+```
 
 
 
