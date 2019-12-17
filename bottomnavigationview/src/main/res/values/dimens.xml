@@ -6,4 +6,5 @@
     <dimen name="bottom_navigation_view_item_number_text_size">6sp</dimen>
     <dimen name="bottom_navigation_view_item_number_icon_size">12dp</dimen>
     <dimen name="bottom_navigation_view_item_margin_bottom">1.5dp</dimen>
+    <dimen name="bottom_navigation_view_item_drawable_margin_top">2dp</dimen>
 </resources>

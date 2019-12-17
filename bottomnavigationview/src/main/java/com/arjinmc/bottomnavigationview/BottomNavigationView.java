@@ -3,6 +3,7 @@ package com.arjinmc.bottomnavigationview;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
@@ -86,13 +87,26 @@ public class BottomNavigationView extends LinearLayout {
      * the text size of item
      */
     private float mItemTextSize;
-
+    /**
+     * the text would be bold style when tab is selected
+     */
+    private boolean mItemTextSelectedBold;
     /**
      * the number text color
      */
     private ColorStateList mItemNumberTextColor;
-
-    private int mItemIconDrawable;
+    /**
+     * the number text size
+     */
+    private float mItemNumberTextSize;
+    /**
+     * the background of number text
+     */
+    private Drawable mItemNumberBackgroundDrawable;
+    /**
+     * the margin between text and icon
+     */
+    private float mItemDrawablePadding;
 
     public BottomNavigationView(Context context) {
         super(context);
@@ -126,9 +140,16 @@ public class BottomNavigationView extends LinearLayout {
         mItemTextColor = lAttrs.getColorStateList(R.styleable.BottomNavigationView_tabTextColor);
         mItemTextSize = lAttrs.getDimension(R.styleable.BottomNavigationView_tabTextSize
                 , getResources().getDimension(R.dimen.bottom_navigation_view_item_text_size));
+        mItemTextSelectedBold = lAttrs.getBoolean(R.styleable.BottomNavigationView_tabTextSelectedBoldStyle, false);
 
         //number text
         mItemNumberTextColor = lAttrs.getColorStateList(R.styleable.BottomNavigationView_tabNumberTextColor);
+        mItemNumberTextSize = lAttrs.getDimension(R.styleable.BottomNavigationView_tabNumberTextSize
+                , getResources().getDimension(R.dimen.bottom_navigation_view_item_number_text_size));
+        mItemNumberBackgroundDrawable = lAttrs.getDrawable(R.styleable.BottomNavigationView_tabNumberBackground);
+
+        mItemDrawablePadding = lAttrs.getDimension(R.styleable.BottomNavigationView_tabDrawablePadding
+                , getResources().getDimension(R.dimen.bottom_navigation_view_item_margin_bottom));
     }
 
     /**
@@ -141,7 +162,11 @@ public class BottomNavigationView extends LinearLayout {
         navigationItemView.setIconSize(mItemIconSize);
         navigationItemView.setTextColorStateList(mItemTextColor);
         navigationItemView.setTextSize(mItemTextSize);
+        navigationItemView.setTextSelectedBold(mItemTextSelectedBold);
         navigationItemView.setNumberTextColor(mItemNumberTextColor);
+        navigationItemView.setNumberTextSize(mItemNumberTextSize);
+        navigationItemView.setNumberBackground(mItemNumberBackgroundDrawable);
+        navigationItemView.setDrawableGap(mItemDrawablePadding);
         return navigationItemView;
     }
 

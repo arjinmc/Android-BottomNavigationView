@@ -2,6 +2,8 @@ package com.arjinmc.bottomnavigationview;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
+import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -41,6 +43,10 @@ public class NavigationItemView extends FrameLayout {
      * above max number n will be shown as "n+"
      */
     private int mMaxNumber = 99;
+    /**
+     * mark if selected to show text bold style
+     */
+    private boolean isTextSelectedBold;
     /**
      * mark is checked
      */
@@ -129,7 +135,7 @@ public class NavigationItemView extends FrameLayout {
      *
      * @param dimensResId
      */
-    public void setDrawableGrapDimens(@DimenRes int dimensResId) {
+    public void setDrawableGap(@DimenRes int dimensResId) {
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) mTvTitle.getLayoutParams();
         layoutParams.topMargin = getResources().getDimensionPixelSize(dimensResId);
         mTvTitle.setLayoutParams(layoutParams);
@@ -140,9 +146,9 @@ public class NavigationItemView extends FrameLayout {
      *
      * @param margin
      */
-    public void setDrawableGrap(int margin) {
+    public void setDrawableGap(float margin) {
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) mTvTitle.getLayoutParams();
-        layoutParams.topMargin = margin;
+        layoutParams.topMargin = (int) margin;
         mTvTitle.setLayoutParams(layoutParams);
     }
 
@@ -258,6 +264,15 @@ public class NavigationItemView extends FrameLayout {
     }
 
     /**
+     * show text bold style when selected
+     *
+     * @param textSelectedBold
+     */
+    public void setTextSelectedBold(boolean textSelectedBold) {
+        isTextSelectedBold = textSelectedBold;
+    }
+
+    /**
      * set icon drawable
      *
      * @param drawableResId
@@ -343,6 +358,19 @@ public class NavigationItemView extends FrameLayout {
     }
 
     /**
+     * set size of number text
+     *
+     * @param textSize
+     */
+    public void setNumberTextSize(float textSize) {
+        mTvNumber.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
+    }
+
+    public void setNumberTextSize(@DimenRes int textSize) {
+        mTvNumber.setTextSize(getResources().getDimensionPixelSize(textSize));
+    }
+
+    /**
      * set number margin
      *
      * @param marginLeft
@@ -358,11 +386,27 @@ public class NavigationItemView extends FrameLayout {
     /**
      * set number background drawable
      *
-     * @param drawableResId
+     * @param drawableRes
      */
-    public void setNumberBackground(@DrawableRes int drawableResId) {
-        mTvNumber.setBackgroundResource(drawableResId);
+    public void setNumberBackground(@DrawableRes int drawableRes) {
+        if (drawableRes == -1) {
+            return;
+        }
+        mTvNumber.setBackgroundResource(drawableRes);
     }
+
+    /**
+     * set number background drawable
+     *
+     * @param drawableRes
+     */
+    public void setNumberBackground(Drawable drawableRes) {
+        if (drawableRes == null) {
+            return;
+        }
+        mTvNumber.setBackground(drawableRes);
+    }
+
 
     /**
      * set number background size
@@ -421,5 +465,14 @@ public class NavigationItemView extends FrameLayout {
         mIsCheck = isCheck;
         mIvIcon.setSelected(isCheck);
         mTvTitle.setSelected(isCheck);
+        mTvNumber.setSelected(isCheck);
+
+        if (isTextSelectedBold) {
+            if (isCheck) {
+                mTvTitle.setTypeface(Typeface.DEFAULT_BOLD);
+            } else {
+                mTvTitle.setTypeface(Typeface.DEFAULT);
+            }
+        }
     }
 }

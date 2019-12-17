@@ -7,6 +7,7 @@
         <attr name="tabIconSize" format="dimension" />
         <attr name="tabTextColor" format="reference" />
         <attr name="tabTextSize" format="dimension" />
+        <attr name="tabTextSelectedBoldStyle" format="boolean" />
         <attr name="tabDrawablePadding" format="dimension" />
     </declare-styleable>
 </resources>
