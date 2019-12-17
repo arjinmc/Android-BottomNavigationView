@@ -1,9 +1,9 @@
 package com.arjinmc.bottomnavigationview;
 
 import android.content.Context;
-import android.os.Build;
+import android.content.res.ColorStateList;
 import android.text.TextUtils;
-import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -11,11 +11,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.ColorInt;
 import androidx.annotation.ColorRes;
 import androidx.annotation.DimenRes;
 import androidx.annotation.DrawableRes;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 import androidx.annotation.StringRes;
 import androidx.core.content.ContextCompat;
 
@@ -47,28 +46,22 @@ public class NavigationItemView extends FrameLayout {
      */
     private boolean mIsCheck;
 
-    public NavigationItemView(Context context) {
+    public NavigationItemView(Context context, BottomNavigationView bottomNavigationView) {
         super(context);
-        init();
-    }
-
-    public NavigationItemView(Context context, @Nullable AttributeSet attrs) {
-        super(context, attrs);
-        init();
-    }
-
-    public NavigationItemView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        init();
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    public NavigationItemView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
+        bindParent(bottomNavigationView);
         init();
     }
 
     private void init() {
+
+        if (mParentView == null) {
+            try {
+                throw new IllegalAccessException("Use BottomNavigationView.newItem() to create");
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+                return;
+            }
+        }
 
         setOnClickListener(new OnClickListener() {
             @Override
@@ -83,7 +76,7 @@ public class NavigationItemView extends FrameLayout {
         mTvNumber = findViewById(R.id.bottom_navigation_view_tv_number);
     }
 
-    public void bindParent(BottomNavigationView parentView){
+    private void bindParent(BottomNavigationView parentView) {
         mParentView = parentView;
     }
 
@@ -221,26 +214,47 @@ public class NavigationItemView extends FrameLayout {
      *
      * @param textSizeResId
      */
-    public void setTextSizeDimen(@DimenRes int textSizeResId) {
+    public void setTextSize(@DimenRes int textSizeResId) {
         mTvTitle.setTextSize(getResources().getDimensionPixelSize(textSizeResId));
     }
 
     /**
      * set text size
      *
-     * @param textSize
+     * @param textSize (px)
      */
-    public void setTextSize(int textSize) {
-        mTvTitle.setTextSize(textSize);
+    public void setTextSize(float textSize) {
+        mTvTitle.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
     }
 
     /**
-     * set text color
+     * set normal text color
      *
-     * @param textColorResId
+     * @param textColor
      */
-    public void setTextColor(@ColorRes int textColorResId) {
-        mTvTitle.setTextColor(ContextCompat.getColor(getContext(), textColorResId));
+    public void setTextColorRes(@ColorRes int textColor) {
+        mTvTitle.setTextColor(ContextCompat.getColor(getContext(), textColor));
+    }
+
+    /**
+     * set normal text color
+     *
+     * @param textColor
+     */
+    public void setTextColor(@ColorInt int textColor) {
+        mTvTitle.setTextColor(textColor);
+    }
+
+    /**
+     * set text color state list
+     *
+     * @param colorStateList
+     */
+    public void setTextColorStateList(ColorStateList colorStateList) {
+        if (colorStateList == null) {
+            return;
+        }
+        mTvTitle.setTextColor(colorStateList);
     }
 
     /**
@@ -296,6 +310,36 @@ public class NavigationItemView extends FrameLayout {
         layoutParams.width = size;
         layoutParams.height = size;
         mIvIcon.setLayoutParams(layoutParams);
+    }
+
+    /**
+     * set number text color
+     *
+     * @param colorStateList
+     */
+    public void setNumberTextColor(ColorStateList colorStateList) {
+        if (colorStateList == null) {
+            return;
+        }
+        mTvNumber.setTextColor(colorStateList);
+    }
+
+    /**
+     * set number text color
+     *
+     * @param color
+     */
+    public void setNumberTextColor(@ColorInt int color) {
+        mTvNumber.setTextColor(color);
+    }
+
+    /**
+     * set number text color
+     *
+     * @param colorRes
+     */
+    public void setNumberTextColorRes(@ColorRes int colorRes) {
+        mTvNumber.setTextColor(ContextCompat.getColor(getContext(), colorRes));
     }
 
     /**
@@ -375,5 +419,7 @@ public class NavigationItemView extends FrameLayout {
      */
     public void setChecked(boolean isCheck) {
         mIsCheck = isCheck;
+        mIvIcon.setSelected(isCheck);
+        mTvTitle.setSelected(isCheck);
     }
 }

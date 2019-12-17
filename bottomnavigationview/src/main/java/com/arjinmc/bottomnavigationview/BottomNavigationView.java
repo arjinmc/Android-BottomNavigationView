@@ -1,6 +1,8 @@
 package com.arjinmc.bottomnavigationview;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
+import android.content.res.TypedArray;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
@@ -71,29 +73,62 @@ public class BottomNavigationView extends LinearLayout {
 
     private OnNavigationItemSelectedListener mOnNavigationItemSelectedListener;
 
+    //NavigationItemView params
+    /**
+     * the icon size(with = height) of item
+     */
+    private int mItemIconSize;
+    /**
+     * the text color of item
+     */
+    private ColorStateList mItemTextColor;
+    /**
+     * the text size of item
+     */
+    private float mItemTextSize;
+
+    /**
+     * the number text color
+     */
+    private ColorStateList mItemNumberTextColor;
+
+    private int mItemIconDrawable;
+
     public BottomNavigationView(Context context) {
         super(context);
-        init();
+        init(null);
     }
 
     public BottomNavigationView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        init();
+        init(attrs);
     }
 
     public BottomNavigationView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init();
+        init(attrs);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public BottomNavigationView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init();
+        init(attrs);
     }
 
-    private void init() {
+    private void init(AttributeSet attrs) {
         setOrientation(LinearLayout.HORIZONTAL);
+
+        TypedArray lAttrs = getContext().obtainStyledAttributes(attrs, R.styleable.BottomNavigationView);
+        //icon
+        mItemIconSize = lAttrs.getDimensionPixelSize(R.styleable.BottomNavigationView_tabIconSize
+                , getResources().getDimensionPixelSize(R.dimen.bottom_navigation_view_item_icon_size));
+        //tab text
+        mItemTextColor = lAttrs.getColorStateList(R.styleable.BottomNavigationView_tabTextColor);
+        mItemTextSize = lAttrs.getDimension(R.styleable.BottomNavigationView_tabTextSize
+                , getResources().getDimension(R.dimen.bottom_navigation_view_item_text_size));
+
+        //number text
+        mItemNumberTextColor = lAttrs.getColorStateList(R.styleable.BottomNavigationView_tabNumberTextColor);
     }
 
     /**
@@ -102,7 +137,12 @@ public class BottomNavigationView extends LinearLayout {
      * @return
      */
     public NavigationItemView newItem() {
-        return new NavigationItemView(getContext());
+        NavigationItemView navigationItemView = new NavigationItemView(getContext(), this);
+        navigationItemView.setIconSize(mItemIconSize);
+        navigationItemView.setTextColorStateList(mItemTextColor);
+        navigationItemView.setTextSize(mItemTextSize);
+        navigationItemView.setNumberTextColor(mItemNumberTextColor);
+        return navigationItemView;
     }
 
     /**
@@ -222,13 +262,6 @@ public class BottomNavigationView extends LinearLayout {
      */
     public void setOnNavigationItemSelectedListener(OnNavigationItemSelectedListener onNavigationItemSelectedListener) {
         mOnNavigationItemSelectedListener = onNavigationItemSelectedListener;
-
-        if (mNavigationItemViewList == null || mNavigationItemViewList.isEmpty()) {
-            return;
-        }
-        for (NavigationItemView navigationItemView : mNavigationItemViewList) {
-            navigationItemView.bindParent(this);
-        }
     }
 
     public interface OnNavigationItemSelectedListener {

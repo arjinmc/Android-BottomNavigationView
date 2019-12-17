@@ -70,7 +70,9 @@
         android:id="@+id/bottom_navigation_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#ffff00"
+        android:background="#b0ffff00"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:tabIconSize="26dp"
+        app:tabTextColor="@drawable/selector_font" />
 </androidx.constraintlayout.widget.ConstraintLayout>

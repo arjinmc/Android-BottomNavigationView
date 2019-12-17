@@ -66,12 +66,14 @@ public class BottomNavigationViewActivity extends AppCompatActivity {
         NavigationItemView naviItem1 = mBottomNavigationView.newItem();
         naviItem1.setText(getString(R.string.tab_1));
         naviItem1.setId(R.id.tab_1);
+        naviItem1.setIconDrawable(R.drawable.ic_home);
         naviItem1.setNumber(2);
         mBottomNavigationView.addItem(naviItem1);
 
         NavigationItemView naviItem2 = mBottomNavigationView.newItem();
         naviItem2.setText(getString(R.string.tab_2));
         naviItem2.setId(R.id.tab_2);
+        naviItem2.setIconDrawable(R.drawable.ic_chart);
         naviItem2.setNumberBackgroundSize(20, 20);
         naviItem2.setNumberMargin(40, 6);
         naviItem2.setShowDot(true);
@@ -80,6 +82,7 @@ public class BottomNavigationViewActivity extends AppCompatActivity {
         NavigationItemView naviItem3 = mBottomNavigationView.newItem();
         naviItem3.setText(getString(R.string.tab_3));
         naviItem3.setId(R.id.tab_3);
+        naviItem3.setIconDrawable(R.drawable.ic_library);
         naviItem3.setNumberBackgroundSize(20, 30);
         naviItem3.setNumber(100);
         mBottomNavigationView.addItem(naviItem3);

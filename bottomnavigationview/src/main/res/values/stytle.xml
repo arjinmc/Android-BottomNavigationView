@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="BottomNavigationView">
-        <attr name="tabNumberTextColor" format="color"/>
-        <attr name="tabNumberTextSize" format="dimension"/>
-        <attr name="tabNumberWidth" format="reference"/>
-        <attr name="tabNumberHeight" format="reference"/>
-        <attr name="tabNumberBackground" format="reference"/>
-        <attr name="tabIconSize" format="reference"/>
-        <attr name="tabTextSelectedColor" format="color"/>
-        <attr name="tabTextUnSelectedColor" format="color"/>
+        <attr name="tabNumberTextColor" format="reference" />
+        <attr name="tabNumberTextSize" format="dimension" />
+        <attr name="tabNumberBackground" format="reference" />
+        <attr name="tabIconSize" format="dimension" />
+        <attr name="tabTextColor" format="reference" />
+        <attr name="tabTextSize" format="dimension" />
+        <attr name="tabDrawablePadding" format="dimension" />
     </declare-styleable>
 </resources>
