@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="BottomNavigationView">
-        <attr name="tabItemGravity" format="flags">
+        <attr name="BottomNavigationView_tabItemGravity" format="flags">
             <flag name="center" value="0" />
             <flag name="bottom" value="1" />
         </attr>
-        <attr name="tabNumberTextColor" format="reference" />
-        <attr name="tabNumberTextSize" format="dimension" />
-        <attr name="tabNumberBackground" format="reference" />
-        <attr name="tabNumberMarginLeft" format="dimension" />
-        <attr name="tabNumberMarginTop" format="dimension" />
-        <attr name="tabIconSize" format="dimension" />
-        <attr name="tabTextColor" format="reference" />
-        <attr name="tabTextSize" format="dimension" />
-        <attr name="tabTextSelectedBoldStyle" format="boolean" />
-        <attr name="tabDrawablePadding" format="dimension" />
-        <attr name="tabBottomPadding" format="dimension" />
+        <attr name="BottomNavigationView_tabNumberTextColor" format="reference" />
+        <attr name="BottomNavigationView_tabNumberTextSize" format="dimension" />
+        <attr name="BottomNavigationView_tabNumberBackground" format="reference" />
+        <attr name="BottomNavigationView_tabNumberMarginLeft" format="dimension" />
+        <attr name="BottomNavigationView_tabNumberMarginTop" format="dimension" />
+        <attr name="BottomNavigationView_tabIconSize" format="dimension" />
+        <attr name="BottomNavigationView_tabTextColor" format="reference" />
+        <attr name="BottomNavigationView_tabTextSize" format="dimension" />
+        <attr name="BottomNavigationView_tabTextSelectedBoldStyle" format="boolean" />
+        <attr name="BottomNavigationView_tabDrawablePadding" format="dimension" />
+        <attr name="BottomNavigationView_tabBottomPadding" format="dimension" />
     </declare-styleable>
 </resources>

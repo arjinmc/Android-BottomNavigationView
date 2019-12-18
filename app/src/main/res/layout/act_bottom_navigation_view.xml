@@ -45,9 +45,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#b0ffff00"
+        app:BottomNavigationView_tabIconSize="26dp"
+        app:BottomNavigationView_tabItemGravity="center"
+        app:BottomNavigationView_tabTextColor="@drawable/selector_font"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:tabIconSize="26dp"
-        app:tabItemGravity="center"
-        app:tabTextColor="@drawable/selector_font" />
+        app:layout_constraintLeft_toLeftOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

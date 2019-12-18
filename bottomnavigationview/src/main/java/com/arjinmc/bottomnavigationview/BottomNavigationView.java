@@ -121,29 +121,29 @@ public class BottomNavigationView extends LinearLayout {
         setOrientation(LinearLayout.HORIZONTAL);
 
         TypedArray lAttrs = getContext().obtainStyledAttributes(attrs, R.styleable.BottomNavigationView);
-        mItemGravityMode = lAttrs.getInt(R.styleable.BottomNavigationView_tabItemGravity, 0);
+        mItemGravityMode = lAttrs.getInt(R.styleable.BottomNavigationView_BottomNavigationView_tabItemGravity, 0);
         //icon
-        mItemIconSize = lAttrs.getDimensionPixelSize(R.styleable.BottomNavigationView_tabIconSize
+        mItemIconSize = lAttrs.getDimensionPixelSize(R.styleable.BottomNavigationView_BottomNavigationView_tabIconSize
                 , getResources().getDimensionPixelSize(R.dimen.bottom_navigation_view_item_icon_size));
         //tab text
-        mItemTextColor = lAttrs.getColorStateList(R.styleable.BottomNavigationView_tabTextColor);
-        mItemTextSize = lAttrs.getDimension(R.styleable.BottomNavigationView_tabTextSize
+        mItemTextColor = lAttrs.getColorStateList(R.styleable.BottomNavigationView_BottomNavigationView_tabTextColor);
+        mItemTextSize = lAttrs.getDimension(R.styleable.BottomNavigationView_BottomNavigationView_tabTextSize
                 , getResources().getDimension(R.dimen.bottom_navigation_view_item_text_size));
-        mItemTextSelectedBold = lAttrs.getBoolean(R.styleable.BottomNavigationView_tabTextSelectedBoldStyle, false);
+        mItemTextSelectedBold = lAttrs.getBoolean(R.styleable.BottomNavigationView_BottomNavigationView_tabTextSelectedBoldStyle, false);
 
         //number text
-        mItemNumberTextColor = lAttrs.getColorStateList(R.styleable.BottomNavigationView_tabNumberTextColor);
-        mItemNumberTextSize = lAttrs.getDimension(R.styleable.BottomNavigationView_tabNumberTextSize
+        mItemNumberTextColor = lAttrs.getColorStateList(R.styleable.BottomNavigationView_BottomNavigationView_tabNumberTextColor);
+        mItemNumberTextSize = lAttrs.getDimension(R.styleable.BottomNavigationView_BottomNavigationView_tabNumberTextSize
                 , getResources().getDimension(R.dimen.bottom_navigation_view_item_number_text_size));
-        mItemNumberBackgroundDrawable = lAttrs.getDrawable(R.styleable.BottomNavigationView_tabNumberBackground);
-        mItemNumberMarginLeft = lAttrs.getDimensionPixelSize(R.styleable.BottomNavigationView_tabNumberMarginLeft
+        mItemNumberBackgroundDrawable = lAttrs.getDrawable(R.styleable.BottomNavigationView_BottomNavigationView_tabNumberBackground);
+        mItemNumberMarginLeft = lAttrs.getDimensionPixelSize(R.styleable.BottomNavigationView_BottomNavigationView_tabNumberMarginLeft
                 , getResources().getDimensionPixelSize(R.dimen.bottom_navigation_view_item_number_margin_left));
-        mItemNumberMarginTop = lAttrs.getDimensionPixelSize(R.styleable.BottomNavigationView_tabNumberMarginTop
+        mItemNumberMarginTop = lAttrs.getDimensionPixelSize(R.styleable.BottomNavigationView_BottomNavigationView_tabNumberMarginTop
                 , getResources().getDimensionPixelSize(R.dimen.bottom_navigation_view_item_number_margin_top));
 
-        mItemDrawablePadding = lAttrs.getDimension(R.styleable.BottomNavigationView_tabDrawablePadding
+        mItemDrawablePadding = lAttrs.getDimension(R.styleable.BottomNavigationView_BottomNavigationView_tabDrawablePadding
                 , getResources().getDimension(R.dimen.bottom_navigation_view_item_drawable_margin_top));
-        mItemBottomPadding = lAttrs.getDimensionPixelSize(R.styleable.BottomNavigationView_tabBottomPadding
+        mItemBottomPadding = lAttrs.getDimensionPixelSize(R.styleable.BottomNavigationView_BottomNavigationView_tabBottomPadding
                 , getResources().getDimensionPixelSize(R.dimen.bottom_navigation_view_item_margin_bottom));
     }
 
