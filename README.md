@@ -19,8 +19,6 @@ compile 'com.arjinmc.android:bottomnavigationview:1.0.0'
 </dependency>
 ```
 
-
-
 ## How to use
 Add this view int your layout.xml file.
 ```
@@ -96,6 +94,9 @@ The bottom padding of NavigationItemView.
 
 ### BottomNavigationView methods
 
+#### setItemGravityMode(int gravity) 
+Set the item gravity for BottomNavigationView. Param values is ITEM_GRAVITY_MODE_CENTER, ITEM_GRAVITY_MODE_BOTTOM.
+
 #### getCurrentItemGravity() 
 Get the item gravity for BottomNavigationView. Values is ITEM_GRAVITY_MODE_CENTER, ITEM_GRAVITY_MODE_BOTTOM.
 
@@ -110,6 +111,15 @@ You can use setXXXX attributes like parent BottomNavigationView to chage style f
 
 #### setCheck()
 Set current NavigationItemView Checked.
+
+#### setNumber(int number)
+Set the number text. The number <= 0 won't be  shown.
+
+#### setMaxNumber(int maxNumber)
+Set the max number fo show number. If setNumber() is beyond max number will be shown as n+, default max number is 99.
+
+#### showDot(boolean)
+Set the number text to show as a dot.
 
 ## License
 ```
