@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.text.TextUtils;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -411,9 +412,12 @@ public class NavigationItemView extends FrameLayout {
         if (drawableRes == null) {
             return;
         }
-        mTvNumber.setBackground(drawableRes);
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.JELLY_BEAN) {
+            mTvNumber.setBackground(drawableRes);
+        } else {
+            mTvNumber.setBackgroundDrawable(drawableRes);
+        }
     }
-
 
     /**
      * set number background size

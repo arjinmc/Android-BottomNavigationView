@@ -6,7 +6,7 @@ Published in Jcenter.
 
 ### gradle 
 ```
-compile 'com.arjinmc.android:bottomnavigationview:1.1.0'
+compile 'com.arjinmc.android:bottomnavigationview:1.2'
 ```
 
 ### maven
@@ -14,7 +14,7 @@ compile 'com.arjinmc.android:bottomnavigationview:1.1.0'
 <dependency>
   <groupId>com.arjinmc.android</groupId>
   <artifactId>bottomnavigationview</artifactId>
-  <version>1.1.0</version>
+  <version>1.2</version>
   <type>pom</type>
 </dependency>
 ```

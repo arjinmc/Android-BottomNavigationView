@@ -37,5 +37,5 @@
         android:gravity="center"
         android:textColor="@android:color/white"
         android:textSize="@dimen/bottom_navigation_view_item_number_text_size"
-        android:visibility="visible" />
+        android:visibility="gone" />
 </FrameLayout>
