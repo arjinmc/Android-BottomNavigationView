@@ -229,7 +229,7 @@ public class NavigationItemView extends FrameLayout {
      * @param textSizeResId
      */
     public void setTextSize(@DimenRes int textSizeResId) {
-        mTvTitle.setTextSize(getResources().getDimensionPixelSize(textSizeResId));
+        mTvTitle.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimensionPixelSize(textSizeResId));
     }
 
     /**
@@ -375,7 +375,7 @@ public class NavigationItemView extends FrameLayout {
     }
 
     public void setNumberTextSize(@DimenRes int textSize) {
-        mTvNumber.setTextSize(getResources().getDimensionPixelSize(textSize));
+        mTvNumber.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimensionPixelSize(textSize));
     }
 
     /**
