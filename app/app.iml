@@ -139,5 +139,7 @@
     <orderEntry type="library" name="Gradle: com.arjinmc.android:expandrecyclerview:3.0@aar" level="project" />
     <orderEntry type="module" module-name="bottomnavigationview" />
     <orderEntry type="module" module-name="bottomnavigationview" />
+    <orderEntry type="module" module-name="bottomnavigationview" />
+    <orderEntry type="module" module-name="bottomnavigationview" />
   </component>
 </module>

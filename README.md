@@ -19,7 +19,7 @@ compile 'com.arjinmc.android:bottomnavigationview:1.2'
 </dependency>
 ```
 
-![image](https://github.com/arjinmc/Android-BottomNavigationView/blob/master/images/device-2019-12-18-144451.png)
+<img src="https://github.com/arjinmc/Android-BottomNavigationView/blob/master/images/device-2019-12-18-144451.png" width="40%" height="40%">
 
 ## How to use
 Add this view int your layout.xml file.
